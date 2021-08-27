@@ -9,9 +9,10 @@ const weatherRequest = ({ logitude, latitude }, callback) => {
     } else if (response.body.error) {
       callback(response.body.error.info, undefined);
     } else {
+      console.log("aa", body.current);
       callback(
         undefined,
-        `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degreess out. It feels like ${body.current.feelslike} degress out`
+        `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out. It feels like ${body.current.feelslike} degress out there. The humidity is ${body.current.humidity}% and wind speed is ${body.current.wind_speed}`
       );
     }
   });
