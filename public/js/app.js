@@ -12,16 +12,14 @@ weatherForm.addEventListener("submit", (e) => {
   phragraphTwo.textContent = "Loading...";
   phragraphOne.textContent = "";
 
-  fetch(`http://localhost:3000/weather/?address=${location}`).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.error) {
-          phragraphTwo.textContent = data.error;
-        } else {
-          phragraphOne.textContent = data.location;
-          phragraphTwo.textContent = data.weatherData;
-        }
-      });
-    }
-  );
+  fetch(`/weather/?address=${location}`).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        phragraphTwo.textContent = data.error;
+      } else {
+        phragraphOne.textContent = data.location;
+        phragraphTwo.textContent = data.weatherData;
+      }
+    });
+  });
 });
